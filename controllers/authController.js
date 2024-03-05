@@ -10,8 +10,7 @@ export const signup = async (req, res) => {
       await user.save();
       console.log({ userData: user });
       const token = await user.generateAuthToken();
-      console.log(token);
-      res.status(201).send({ user });
+      res.status(201).send({ user , token});
     } else {
       res.status(201).send("Email is already exists.");
     }
